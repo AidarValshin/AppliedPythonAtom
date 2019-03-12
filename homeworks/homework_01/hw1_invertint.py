@@ -3,20 +3,40 @@
 
 
 def reverse(number):
+    """
+    Метод, принимающий
+    на вход
+    int и
+    возвращающий
+    инвертированный
+    int
+    :param number:
+     исходное число
+    :return:
+    инвертированное число
+    """
+
+    ost = 0
+    if number == 0:
+        return 0
     if number < 0:
-        k = -1
-    else:
-        k = 1
-    number = abs(number)
-    n = 0
-    while abs(number) > 0:
-        ost = number % 10
-        number = number // 10
-        n = n * 10 + ost
-    return k * n
-    '''
-    Метод, принимающий на вход int и
-    возвращающий инвертированный int
-    :param number: исходное число
-    :return: инвертированное число
-    '''
+        number = -number
+        while ost == 0:
+            ost = number % 10
+            number = number/10
+        number = number*10
+        st = str(int(number))
+        st = st[::-1]
+        a = int(st)
+        return -a
+    if number > 0:
+        while ost == 0:
+            ost = number % 10
+            number = number / 10
+        number = number * 10
+        st = str(int(number))
+        st = st[::-1]
+        a = int(st)
+        return a
+    raise NotImplementedError
+
